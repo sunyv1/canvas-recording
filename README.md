@@ -1,19 +1,7 @@
-# my
+# 本项目属于简易版的实现canvas的弹幕滚动以及canvas的录制功能
 
-## Project setup
-```
-yarn install
-```
+默认进入home路由，显示的是多行弹幕效果
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+地址栏输入/single,进入单行滚动字幕
 
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+创建方法主要在tool的js文件中
