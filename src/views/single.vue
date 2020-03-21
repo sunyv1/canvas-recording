@@ -3,7 +3,7 @@
     <Content>
       <Row>
         <i-col class="l-left" span="16">
-          <canvas id="thecanvas" :height="size.height" :width="size.width"></canvas>
+          <canvas id="singlecanvas" :height="size.height" :width="size.width"></canvas>
           <div class="size">
             <Input v-model="value2" placeholder="宽" style="width: 100px" />
             <Input v-model="value1" placeholder="高" style="width: 100px" />
@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import RecordingCanvas from "../tool/recording";
+import RecordingCanvas from "../tool/single";
 export default {
   components: {},
   data() {
@@ -40,103 +40,11 @@ export default {
       value1: "", //输入宽高
       value2: "",
       color: "rgba(235,230,138,0.5)", //画布背景色
-      dataBarrage: [
-        {
-          value: "使用的是静态死数据",
-          color: "blue",
-          range: [0, 0.5]
-        },
-        {
-          value: "随机循环播放",
-          color: "blue",
-          range: [0, 0.6]
-        },
-        {
-          value: "可以控制区域和垂直分布范围",
-          color: "blue",
-          range: [0, 0.5]
-        },
-        {
-          value: "字体大小和速度在方法内设置",
-          color: "black",
-          range: [0.1, 1]
-        },
-        {
-          value: "适合用在一些静态页面上",
-          color: "black",
-          range: [0.2, 1]
-        },
-        {
-          value: "基于canvas实现",
-          color: "black",
-          range: [0.2, 0.9]
-        },
-        {
-          value: "因此IE9+浏览器才支持",
-          color: "black",
-          range: [0.2, 1]
-        },
-        {
-          value: "可以设置边框颜色",
-          color: "black",
-          range: [0.2, 1]
-        },
-        {
-          value: "文字颜色默认都是白色",
-          color: "black",
-          range: [0.2, 0.9]
-        },
-        {
-          value: "若文字颜色不想白色",
-          color: "black",
-          range: [0.2, 1]
-        },
-        {
-          value: "需要自己调整下JS",
-          color: "black",
-          range: [0.6, 0.7]
-        },
-        {
-          value: "如果需要的是真实和视频交互的弹幕",
-          color: "black",
-          range: [0.2, 1]
-        },
-        {
-          value: "可以回到原文",
-          color: "black",
-          range: [0, 0.9]
-        },
-        {
-          value: "查看另外一个demo",
-          color: "black",
-          range: [0.7, 1]
-        },
-        {
-          value: "下面就是占位弹幕了",
-          color: "black",
-          range: [0.7, 0.95]
-        },
-        {
-          value: "前方高能预警！！！",
-          color: "orange",
-          range: [0.5, 0.8]
-        },
-        {
-          value: "前方高能预警！！！",
-          color: "orange",
-          range: [0.5, 0.9]
-        },
-        {
-          value: "前方高能预警！！！",
-          color: "orange",
-          range: [0, 1]
-        },
-        {
-          value: "前方高能预警！！！",
-          color: "orange",
-          range: [0, 1]
-        }
-      ], //模拟数据
+      dataBarrage: {
+        value: "使用的是静态死数据",
+        color: "blue",
+        range: [0, 0.5]
+      }, //模拟数据
       canvas: null, //实例方法
       time: "00:00", //显示时间
       seconds: 0, //录制秒数
@@ -202,11 +110,11 @@ export default {
   },
   mounted() {
     this.canvas = new RecordingCanvas(
-      "#thecanvas",
+      "#singlecanvas",
       this.dataBarrage,
       this.color
     );
-    this.canvas.canvasBarrage(40);
+    this.canvas.canvasBarrage(90);
   }
 };
 </script>
